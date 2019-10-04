@@ -10,7 +10,35 @@ public class Solution {
 	    int val;
 	    TreeNode left;
 	    TreeNode right;
-	    TreeNode(int x) { val = x; }
+	    
+	    public TreeNode(int data) {
+	        this.val = data;
+	        this.left = null;
+	        this.right = null;
+	    }
+	    
+	    public void makeRightSubtree(int data) {
+	        this.right = new TreeNode(data);
+	    }
+	 
+	    public void makeLeftSubTree(int data) {
+	        this.left = new TreeNode(data);
+	    }
+	 
+	    public void makeSubtree(int leftData, int rightData) {
+	        this.left = new TreeNode(leftData);
+	        this.right = new TreeNode(rightData);
+	    }
+	    
+
+	    public TreeNode getRightSubtree() {
+	        return right;
+	    }
+	 
+	    public TreeNode getLeftSubtree() {
+	        return left;
+	    }
+
 	}
 	
 	
@@ -52,4 +80,5 @@ public class Solution {
         
         return false;
     }
+
 }
