@@ -7,25 +7,25 @@ public class Solution {
     //2, 1
 
 	public class TreeNode {
-	    int val;
+	    Integer val;
 	    TreeNode left;
 	    TreeNode right;
 	    
-	    public TreeNode(int data) {
+	    public TreeNode(Integer data) {
 	        this.val = data;
 	        this.left = null;
 	        this.right = null;
 	    }
 	    
-	    public void makeRightSubtree(int data) {
+	    public void makeRightSubtree(Integer data) {
 	        this.right = new TreeNode(data);
 	    }
 	 
-	    public void makeLeftSubTree(int data) {
+	    public void makeLeftSubTree(Integer data) {
 	        this.left = new TreeNode(data);
 	    }
 	 
-	    public void makeSubtree(int leftData, int rightData) {
+	    public void makeSubtree(Integer leftData, Integer rightData) {
 	        this.left = new TreeNode(leftData);
 	        this.right = new TreeNode(rightData);
 	    }
@@ -36,7 +36,7 @@ public class Solution {
 	    }
 	 
 	    public TreeNode getLeftSubtree() {
-	        return left;
+	        return this.left;
 	    }
 
 	}
@@ -50,18 +50,24 @@ public class Solution {
         pathp.add(root);
         pathq.add(root);
         
-        getPath(root, p, pathp);
-        getPath(root, q, pathq);
+        if(!getPath(root, p, pathp))
+        	return null;
+        if(!getPath(root, q, pathq))
+        	return null;
         
         TreeNode lca = null;
-        for(int i=0; i<pathp.size() && i<pathq.size(); i++) {
+        for(Integer i=0; i<pathp.size() && i<pathq.size(); i++) {
             if(pathp.get(i) == pathq.get(i)) lca = pathp.get(i);
             else break;
         }
         return lca;
     }
     
-    private boolean getPath(TreeNode root, TreeNode n, List<TreeNode> path) {
+    public boolean getPath(TreeNode root, TreeNode n, List<TreeNode> path) {
+    	if(root==null) {
+            return false;
+        }
+    	
         if(root==n) {
             return true;
         }
