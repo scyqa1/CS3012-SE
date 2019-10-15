@@ -151,6 +151,12 @@ public class SolutionTest
       assertEquals(  root.getLeftSubtree().getRightSubtree(), path_node2.get(2) );
       assertEquals(  root.getLeftSubtree().getRightSubtree().getRightSubtree(), path_node2.get(3) );
       assertEquals(  root.getLeftSubtree().getRightSubtree().getRightSubtree().getLeftSubtree(), path_node2.get(4) );
+      
+      
+      // find lca of two nodes which is 7 and 4
+      node1 = root.getLeftSubtree().getLeftSubtree();
+      node2 = root.getLeftSubtree();      
+      assertEquals(  root.getLeftSubtree(), testSolu.lowestCommonAncestor(root,node1,node2) );
 
 
 	}
