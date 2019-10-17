@@ -78,6 +78,9 @@ public class SolutionTest
       node1=testSolu.new TreeNode(2);
       node2=testSolu.new TreeNode(7);
 	  assertEquals(  null, testSolu.lowestCommonAncestor(root,node1,node2) );
+	  
+      node1 = root.getLeftSubtree();
+	  assertEquals(  null, testSolu.lowestCommonAncestor(root,node1,node2) );
 	}
     
     

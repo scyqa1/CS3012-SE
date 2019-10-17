@@ -1,6 +1,4 @@
-import java.util.Iterator;
-
-public class Queue<Item> implements Iterable<Item> {
+public class Queue<Item> {
 
 	private Node first;// Í·²¿
 	private Node last;// Î²²¿
@@ -30,52 +28,14 @@ public class Queue<Item> implements Iterable<Item> {
 		Item item = first.item;
 		first = first.next;
 
-		if (isEmpty()) {
-			last = null;
+		if (!isEmpty()) {
+			N--;
 		}
-		N--;
 		return item;
 	}
 
 	public boolean isEmpty() {
 		return N == 0;
-	}
-
-	public int size() {
-		return N;
-	}
-
-	public Iterator<Item> iterator() {
-		// TODO Auto-generated method stub
-		return new listIterator();
-	}
-
-	private class listIterator implements Iterator<Item> {
-
-		private Node current = first;
-
-		public boolean hasNext() {
-			return current != null;
-		}
-
-		public Item next() {
-			Item item = current.item;
-			current = current.next;
-			return item;
-		}
-
-	}
-
-	public static void main(String[] args) {
-		Queue<String> queue = new Queue<String>();
-		for (String string : args) {
-			if (!string.equals("-")) {
-				queue.enqueue(string);
-			} else if (!queue.isEmpty()) {
-				System.out.print(queue.dequeue() + " ");
-			}
-		}
-		System.out.println("(" + queue.size() + " left on stack" + ")");
 	}
 
 }

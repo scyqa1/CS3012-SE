@@ -68,16 +68,19 @@ class LAC {
 		
 		List<Integer> lv = (List<Integer>) find(G, v);
 		List<Integer> lw = (List<Integer>) find(G, w);
-		if (lv.size() > lw.size()) {
-			for (int t : lw) {
-				if (lv.contains(t))
-					return t;
-			}
-		} else {
- 
+		
+		if (lw.size() > lv.size()) {
 			for (int t : lv) {
-				if (lw.contains(t))
+				if (lw.contains(t)) {
 					return t;
+				}
+			}
+		}
+		else {
+			for (int t : lw) {
+				if (lv.contains(t)) {
+					return t;
+				}
 			}
 		}
 		return -4;

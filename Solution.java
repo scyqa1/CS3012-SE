@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
  
@@ -32,11 +33,11 @@ public class Solution {
 	    
 
 	    public TreeNode getRightSubtree() {
-	        return right;
+            return right;
 	    }
 	 
 	    public TreeNode getLeftSubtree() {
-	        return this.left;
+	    	return left;
 	    }
 
 	}
@@ -64,9 +65,6 @@ public class Solution {
     }
     
     public boolean getPath(TreeNode root, TreeNode n, List<TreeNode> path) {
-    	if(root==null) {
-            return false;
-        }
     	
         if(root==n) {
             return true;

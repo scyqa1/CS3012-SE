@@ -1,5 +1,4 @@
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 /**
  *  The {@code Bag} class represents a bag (or multiset) of 
@@ -39,24 +38,6 @@ public class Bag<Item> implements Iterable<Item> {
         n = 0;
     }
 
-    /**
-     * Returns true if this bag is empty.
-     *
-     * @return {@code true} if this bag is empty;
-     *         {@code false} otherwise
-     */
-    public boolean isEmpty() {
-        return first == null;
-    }
-
-    /**
-     * Returns the number of items in this bag.
-     *
-     * @return the number of items in this bag
-     */
-    public int size() {
-        return n;
-    }
 
     /**
      * Adds the item to this bag.
@@ -90,10 +71,8 @@ public class Bag<Item> implements Iterable<Item> {
         }
 
         public boolean hasNext()  { return current != null;                     }
-        public void remove()      { throw new UnsupportedOperationException();  }
 
         public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
             Item item = current.item;
             current = current.next; 
             return item;

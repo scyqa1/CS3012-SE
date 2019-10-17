@@ -57,7 +57,8 @@ public class DAG_Test
         d.addEdge(1, 2);
         
     	LAC solu=new LAC(d);
-    	assertEquals( -3, solu.findLAC(6,7));
+    	assertEquals( -3, solu.findLAC(6,1));
+    	assertEquals( -3, solu.findLAC(1,6));
     }
     
     @Test
